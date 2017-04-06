@@ -1,0 +1,17 @@
+html,body{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	color: #fff;
+	background-color: #336699;
+}
+
+a{
+	text-decoration: none;
+	color: #fff;
+	display: flex;
+}

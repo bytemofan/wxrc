@@ -1,0 +1,46 @@
+#!/usr/bin/env node
+
+var commander = require('commander');
+var join = require('path').join;
+var mkdirpSync = require('fs-extra').mkdirpSync;
+var existsSync = require('fs').existsSync;
+var chalk = require('chalk');
+
+commander
+  .version(require('../package').version, '-v, --version')
+  .usage('[options] <projectname...>')
+  .on('--help', printHelp)
+  .option('-s, --install', 'Enable npm install after files created')
+  .option('-r, --react', 'Create a react basic project')
+  .option('-R, --redux', 'Create a react basic project with react-redux and react-router')
+  .parse(process.argv);
+
+if (!commander.args[0]) {
+  commander.help()
+}else{
+	var dest;
+  	var command = commander.args[0];
+  	if(command == 'init' || command == 'i'){
+		dest = process.cwd();
+	}else if(command == 'new' || command == 'n'){
+		dest = join(process.cwd(), commander.args[1]);
+	    if (existsSync(dest)) {
+	      console.error(chalk.red('Existing directory here, please run new command for an empty folder!'));
+	      process.exit(1);
+	    }
+	}
+
+	mkdirpSync(dest);
+  	process.chdir(dest);
+  	require('../src/init')(commander);
+}
+
+function printHelp() {
+  console.log('  Commands:')
+  console.log()
+  console.log('    i, init        Init a new react application in the current folder')
+  console.log('    n, new         Create a new application')
+  console.log()
+  console.log('  All commands can be run with -h (or --help) for more information.')
+}
+

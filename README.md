@@ -48,7 +48,7 @@ wxrc new peojectname
 
 初始化：
 ```bash
-wxrc new peojectname -r
+wxrc new peojectname -R
 ```
 
 新建：

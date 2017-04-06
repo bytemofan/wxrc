@@ -1,6 +1,6 @@
 {
   "name": "wxrc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "wxrc",
   "main": "src/init",
   "bin": {

@@ -31,6 +31,8 @@ wxrc init
 - [x] 集成source-map
 - [x] 集成rem   
 - [x] 集成单元测试
+- [x] 集成数据mock
+- [x] 集成自动ftp部署到测试服务器
 
 #### 在当前目录下新建一个初始化的react工程
 
